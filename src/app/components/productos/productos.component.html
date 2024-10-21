@@ -1,0 +1,23 @@
+<h3> Agregar Producto </h3>
+<label for="nombre">Nombre: </label>
+<input type="text" #nombre>
+<br>
+<label for="precio">Precio: $ </label>
+<input type="number" #precio>
+<br>
+<br>
+
+<button (click)="agregarProducto(nombre.value, precio.value)"> Agregar Producto </button>
+
+
+<ul>
+  <li *ngFor="let item of productos" [class.descuento]="item.descuento">
+    {{item.nombre}} - ${{item.precio}} - Codigo:{{item.id}}
+
+    <!-- Checkbox para cambiar el estado de descuento -->
+    <input type="checkbox" [checked]="item.descuento" (change)="agregarSacarDescuento(item)" /> Descuento
+
+    <!-- boton de elminar -->
+    <button (click)="eliminarProducto(item.id)">Eliminar</button>
+  </li>
+</ul>

@@ -1,0 +1,39 @@
+<p>ngfor works!</p>
+
+<ul>
+  <li *ngFor="let item of estudiantes">{{item.nombre}}</li>
+</ul>
+
+<!-- item es un nombre que yo elijo
+ y al lado le tengo que pasar la lista -->
+
+
+ <ol>
+ @for (est of estudiantes; track $index){
+  <li> {{est.nombre}}</li>
+ }
+ </ol>
+
+
+ <ol>
+  @for (est of estudiantes; track $index){
+  @if(est.id>2){
+    <li> {{est.nombre}}</li>
+    }
+  }
+  </ol>
+
+  @switch (color) {
+    @case('rojo'){
+      <p>este es el color rojo</p>
+    }
+    @case('verde'){
+      <p>este es el color verde</p>
+    }
+    @case('negro'){
+      <p>este es el color negro</p>
+    }
+    @default {
+      <p>default</p>
+    }
+  }

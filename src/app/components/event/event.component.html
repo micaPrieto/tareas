@@ -1,0 +1,20 @@
+<h2>event works! </h2>
+
+<button (click) = "contar()">  Contar </button>
+<!-- acá muestro el resultado: -->
+{{contador}}
+
+
+<h2>event (input)</h2>
+<input type="text" (input) = "setCadena($event)">
+{{cadena}}
+
+
+<h2>event (change)</h2>
+<input type="text" (change) = "changeCadena($event)">
+{{cadenaChange}}
+
+<h2>event (keyup)</h2>
+<input type="text" (keyup) = "setKey($event)">
+{{key}}
+{{x}}
