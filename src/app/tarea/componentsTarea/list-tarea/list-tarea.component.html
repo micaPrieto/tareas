@@ -1,0 +1,25 @@
+<section>
+  <h2>Añadir Tarea</h2>
+
+  <app-add-tarea (emitirTarea)="agregarLista($event)"></app-add-tarea>
+<!-- Hago un dataBingind (emitirTarea) y me encuentra el emitirTarea
+  porque es un evento que es esa variable @output -->
+
+<!-- 1. El componente app-add-tarea emite un evento llamado emitirTarea.
+  2. El evento es capturado por el componente padre.
+  3. Al capturar el evento, el componente padre llama a la función agregarLista
+  y le pasa el valor del evento como argumento (usando $event). -->
+  <hr/>
+  <h2>Lista de tareas</h2>
+
+  <ul>
+   @for (tarea of listaTareas; track $index) {
+    <li> Id: {{tarea.id}} - Tarea: {{tarea.nombre}}
+      <a href=""(click)="delete(tarea.id)">Eliminar </a>
+      <a [routerLink]="['update',tarea.id]">  - Actualizar</a>
+      <!-- esto me va a llevar a la ruta update, y me va a traer el id -->
+    </li>
+   }
+  </ul>
+
+</section>

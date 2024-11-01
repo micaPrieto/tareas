@@ -1,0 +1,64 @@
+
+<fieldset>
+  <legend>Alta tarea</legend>
+
+
+  <form [formGroup]="formulario" (ngSubmit)="addTarea()">
+        <!-- estoy seteando la variable formulario del ts con el formGroup -->
+        <!-- ngSubmit es un evento que se dispara cuando el formulario se envia,
+        llamando a la funcion addTarea() -->
+
+
+        <!-------------------- ID  ----------------------->
+        <label for="id">ID:</label>
+        <input
+          id= 'id'
+          type="text"
+          formControlName="id"
+        />
+
+        @if (formulario.controls['id'].getError ('required'))
+        {
+          <!-- si el validators me toma el error required (que es cuando presiono y salgo sin poner nada),
+          ahi me va a poner el "Requerido.." -->
+            <div class ="error">
+              <!-- este div agarra la clase del css que le da el color -->
+              Requerido...
+            </div>
+        }
+
+        <!-------------------- NOMBRE  --------------------->
+        <label for="nombre">Nombre tarea:</label>
+        <input
+          id="nombre"
+          type="text"
+          formControlName="nombre"
+        />
+        <!-- Acá actualizo el nombre del atributo tarea -->
+
+        <!-- Validaciones de nombre: -->
+        @if (formulario.controls['nombre'].getError('required') && formulario.controls['nombre'].touched)
+        {<!-- si el validators me toma el error required (que es cuando presiono y salgo sin poner nada),
+          ahi me va a MOSTRAR el "Requerido.." -->
+            <div class = "error">
+              Requerido...
+            </div>
+        }
+
+        @if (formulario.controls['nombre'].getError('minlength') && formulario.controls['nombre'].touched)
+        {
+            <div>
+              Tiene que tener un minimo de 3 letras
+            </div>
+        }
+
+
+
+        <!-------------------- BOTON AGREGAR  --------------------->
+        <button type = "submit">Agregar</button>
+      <!-- llamo a la funcion que me envia el contenido de esa tarea al padre  -->
+  </form>
+
+
+</fieldset>
+

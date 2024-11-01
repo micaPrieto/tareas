@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './componente.component.css'
 })
 export class ComponenteComponent {
-
+  nombre:string="leandro";
 }
