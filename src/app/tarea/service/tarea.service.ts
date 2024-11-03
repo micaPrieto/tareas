@@ -31,7 +31,8 @@ export class TareaService {
     putTareas(tarea: Tarea, id: string | null): Observable<Tarea> //Inserto una tarea
     {
       return this.http.put<Tarea>(`${this.urlBase}/${id}`, tarea);
-    }
+      //le paso la tarea y el id, porque voy a actualizar con la nueva tarea
+    }// la tarea del id que le paso
 
     postTareas(tarea: Tarea): Observable<Tarea> //Inserto una tarea
     {

@@ -22,7 +22,6 @@ export class AddTareaComponent {
   fb = inject(FormBuilder)
 //Injectamos el FormBuilder en una variable, el cual ayuda a construir el formulario
 
-
 tareaService= inject(TareaService); // **JSON**
 // injecto nuestro servicio
 
@@ -51,14 +50,15 @@ formulario = this.fb.nonNullable.group( // Entre parentesis va a ir un objeto qu
     const tarea = this.formulario.getRawValue()
     //Si el formulario es valido, lo agregamos a una constante
 
-    this.addTareaDB(tarea);//Llamamos a la funcion que llama al post y se subscribe
+    this.addTareaDB(tarea);  /** JSON*/
+    //Llamamos a la funcion que llama al post y se subscribe
 
     this.emitirTarea.emit(tarea);// emitimos ese valor
 
   }
 
 
-  addTareaDB(tarea: Tarea)
+  addTareaDB(tarea: Tarea) //*JSON *
   {//Esto se transforma en un observador. Se subscribe al servicio
     //para poder agregar a la base de datos
     this.tareaService.postTareas(tarea).subscribe(

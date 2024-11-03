@@ -13,9 +13,10 @@
   <h2>Lista de tareas</h2>
 
   <ul>
-   @for (tarea of listaTareas; track $index) {
+   @for (tarea of listaTareas; track $index)
+   {
     <li> Id: {{tarea.id}} - Tarea: {{tarea.nombre}}
-      <a href=""(click)="delete(tarea.id)">Eliminar </a>
+      <a href=""(click)="eliminar(tarea.id)">Eliminar </a>
       <a [routerLink]="['update',tarea.id]">  - Actualizar</a>
       <!-- esto me va a llevar a la ruta update, y me va a traer el id -->
     </li>
